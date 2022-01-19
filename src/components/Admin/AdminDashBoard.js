@@ -5,7 +5,7 @@ import {EveryOtherAdminHomepage} from './EveryOtherAdminsHomePage';
 const SUPER_ADMIN = "Super Admin";
 const Bank_ACCESS_ADMIN = "Bank Access Control";
 
-export const DashBoard = (adminRole) => {
+export const DashBoard = ({adminRole}) => {
     //const lowerCaseAdminRole = adminRole.toLowerCase();
     const isSuperAdmin = adminRole === SUPER_ADMIN;
     const isBankAccess = adminRole === Bank_ACCESS_ADMIN;
@@ -13,7 +13,8 @@ export const DashBoard = (adminRole) => {
     return(
         <div>
         {
-            isSuperAdmin ? <SuperAdminHomepage/> : <BankAccessAdminHomepage />
+            isSuperAdmin ? <SuperAdminHomepage/> : isBankAccess ? <BankAccessAdminHomepage /> : 
+            <p>Something went wrong</p>
         }   
         </div> 
     )
